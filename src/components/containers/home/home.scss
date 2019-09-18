@@ -1,0 +1,55 @@
+@import '../../../App.scss';
+
+.cardHome {
+    margin-top: -80px;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.img-delivery {
+    width: 150px;
+}
+
+// LOGO ANIMATE
+.animation-logo {
+    position: absolute;
+    width: 100px;
+    top: 30%;
+}
+.animation-text {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+}
+
+.text-home {
+    width: 480px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.img-game {
+    width: 300px;
+}
+
+.footer {
+    background-color: $navbar;
+    width: 100%;
+    height: 650px;
+}
+.padding-none {
+    padding: 0!important;
+    margin: 0!important;
+}
+
+.social-media {
+    width: 100%;
+    height: 80px;
+}
+
+.img-work {
+    width: 400px;
+}

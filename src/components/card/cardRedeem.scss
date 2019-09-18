@@ -1,0 +1,74 @@
+@import "../../App.scss";
+
+.card {
+  border-radius: 5px !important;
+  width: 320px;
+  height: 310px;
+  margin: auto;
+  background-color: $backgroundCard !important;
+}
+
+.type-product {
+  display: block;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: -8px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: rgb(142, 142, 142);
+}
+.name-product {
+  display: inline;
+  margin-left: 15px;
+  letter-spacing: 0.5px;
+}
+.price {
+  margin-left: 145px;
+  display: inline;
+}
+.link-redeem {
+  margin-left: 10px;
+  display: inline;
+  color: $myBlackColor;
+}
+
+// hover
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(169, 223, 242, 0.735);
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-redeem-card {
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 60px;
+    font-size: 12px;
+    color: $myBlackColor;
+    text-transform: lowercase;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-redeem-card:focus {
+    outline: none;
+}
+
+.btn-redeem-card:hover {
+    background-color: rgb(247, 247, 247);
+}

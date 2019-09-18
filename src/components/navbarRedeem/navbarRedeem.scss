@@ -1,0 +1,43 @@
+@import "../../App.scss";
+
+.navbar-redeem {
+  width: 100%;
+  height: 150px;
+  background-color: $navbar;
+}
+
+.logo-redeem {
+  display: flex;
+  justify-items: space-around;
+  float: left;
+}
+
+.search-redeem {
+  display: flex;
+  justify-content: space-around;
+}
+
+.redeem-options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.number-products {
+  float: none;
+}
+
+.btn-cost {
+}
+
+.input-search {
+    width: 320px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+.input-search:focus {
+    outline: none;
+}
