@@ -17,6 +17,7 @@ export class NavbarHome extends Component {
                             <Header className="fixed" title="Aerolab">
                                 <Navigation>
                                         <Link rel="noopener noreferrer" to="/redeem" className="btnLink">Redeem <IconButton name="redeem" /></Link>
+                                        <Link rel="noopener noreferrer" to="/GivePoints" className="btnLink">Give points</Link>
                                 </Navigation>
                             </Header>
                         </Layout>

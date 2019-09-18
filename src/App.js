@@ -3,6 +3,7 @@ import './App.scss';
 import Home from './components/containers/home/Home';
 import Redeem from './components/containers/redeem/Redeem';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import GivePoints from './components/containers/givePoints/GivePoints';
 
 
 class App extends Component {
@@ -12,8 +13,9 @@ class App extends Component {
               <Router>
                   <Switch>
                       <Route exact path="/" component={Home}/>
-                      <Route path="/home" component={Home}/>
-                      <Route path="/redeem" component={Redeem}/>
+                      <Route path="/Home" component={Home}/>
+                      <Route path="/Redeem" component={Redeem}/>
+                      <Route path="/GivePoints" component={GivePoints}/>
                   </Switch>
               </Router>
       </div>

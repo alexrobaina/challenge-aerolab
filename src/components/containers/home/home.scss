@@ -23,12 +23,20 @@
     position: absolute;
     top: 50%;
     font-size: 40px;
+    font-family: 'Manjari', sans-serif;
+}
+
+.footer-text {
+    font-family: 'Manjari', sans-serif;
+    font-size: 40px;
+    letter-spacing: 4px;
 }
 
 .text-home {
     width: 480px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
+    font-family: 'Manjari', sans-serif;
 }
 
 .img-game {
@@ -52,4 +60,21 @@
 
 .img-work {
     width: 400px;
+}
+
+.logo-size {
+    width: 30px;
+    padding: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 600px) { 
+    .animation-text {
+        position: absolute;
+        top: 50%;
+        font-size: 30px;
+        font-family: 'Manjari', sans-serif;
+    }
+    .cardHome {
+        margin-top: 50px;
+    }
 }

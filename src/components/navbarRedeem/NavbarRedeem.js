@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../../assets/aerolab-logo.svg';
 import coin from '../../assets/img/coin.svg'
-import { Button, IconButton } from 'react-mdl';
+import { Link } from 'react-router-dom';
+import { Grid, IconButton, Cell, Tooltip } from 'react-mdl';
 import './navbarRedeem.scss';
 
 export default class NavbarRedeem extends Component {
@@ -17,8 +18,8 @@ export default class NavbarRedeem extends Component {
             <div>
                 <div className={"navbar-redeem"}>
                     <div className={""}>
-                        <div className="logo">
-                            <img className={""} src={logo} alt=""/>
+                        <div className="logo-redeem">
+                        <Tooltip label="Back Home" position="right"><Link to={'Home'}><img className={""} src={logo} alt=""/></Link></Tooltip>
                         </div>
                         <div className={"search-redeem"}>
                             <div className="m-top10">
@@ -31,21 +32,33 @@ export default class NavbarRedeem extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className={"redeem-options"}>
-                        <div className={"redeem-options"}>  
-                        
-                            <p className={"number-products"}>{`${numberProducts} products`}</p>
-                            <Button onClick={sortAscendent} className={"btn-cost"}>LowestPrice</Button>
-                            <Button onClick={sortDescendant} className={"btn-cost"}>mayor</Button>
-                        </div>    
+                    <Grid className={"redeem-options"}>
+                        <Cell tablet={12} phone={12} className={"redeem-options"}>  
                             
-                        <div className="redeem-options">
-                            <p className={""}>{`${userName}`}</p>
-                            <p className={""}>{`Your points: ${userPoints}`}</p>
-                            <img src={coin} alt="coin" />
-                        </div>
+                            <p className={"number-products"}>{`${numberProducts} products`}</p>
+                            
+                            <div className="container-buttons">
+                                <div className="buttons-price">
+                                    <button onClick={sortAscendent} className={"btn-cost"}>Lowest price</button>
+                                </div>
+                                <div className="buttons-price">
+                                    <button onClick={sortDescendant} className={"btn-cost"}>highest price</button>
+                                </div>
+                            </div>
 
-                    </div>
+                        </Cell>    
+                            
+                        <Cell tablet={4} phone={12} className="redeem-options">
+                            <Grid>
+                                <p className={"user-name"}>{`${userName}`}</p>
+                            </Grid>
+                            <Grid>
+                                <p className={"user-points"}>{`Your points: ${userPoints}`}</p>
+                                <img className="icon-coin" src={coin} alt="coin" />
+                            </Grid>
+                        </Cell>
+
+                    </Grid>
                 </div>
             </div>
         )

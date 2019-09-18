@@ -3,7 +3,7 @@ import ReactWOW from 'react-wow';
 import TOKEN from '../../../config/config';
 import { Grid, Cell } from 'react-mdl';
 import axios from 'axios';
-
+import swal from 'sweetalert';
 import NavbarRedeem from '../../navbarRedeem/NavbarRedeem';
 import CardRedeem from '../../card/CardRedeem';
 
@@ -18,13 +18,13 @@ export default class Redeem extends Component {
             user: [],
             userName: '',
             userPoints: 0,
+            productId: '',
             isOrder: '',
             search: ''
         }
 
         this.sortDescendant = this.sortDescendant.bind(this);
         this.sortAscendent = this.sortAscendent.bind(this);
-        
 
     }
 
@@ -91,26 +91,41 @@ export default class Redeem extends Component {
             });
     }
 
+    _historyUser(productId) {
+        axios({
+            method: 'post',
+            url: 'https://coding-challenge-api.aerolab.co/redeem',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': TOKEN
+            },
+            data: {
+                "productId": productId
+            }
+          })
+            .then((response) => {
+                swal("Enjoy!", `${response.data.message}`, "success");
+            });
+    }
+
     // end axios, search data
 
     // methos Handle
 
-    handlePriceProduct = (price) => {
-        this.handleRedeem(price);
-    }
-
-    handleRedeem(price) {
+    handlePriceAndIdProduct = (price, productId) => {
         let userPoints = this.state.userPoints;
+        let pointsUserNeed = price - userPoints;
         if (userPoints < price) {
-            alert('no tienes puntos');
+            swal("Sorry", `You need ${pointsUserNeed} points to redeem`, "error");
         } else {
             userPoints -= price;
+            this._historyUser(productId);
         }
         this.setState({
             userPoints: userPoints
         })
     }
-    // end methos Handle
 
     // Method for order productos 
     
@@ -146,8 +161,7 @@ export default class Redeem extends Component {
       }
       // end Method for order productos 
 
-      // method for filter products
-
+      // Method for take value input search
       handleSearch = (event) => {
         let { products } = this.state
           this.setState({ 
@@ -155,13 +169,18 @@ export default class Redeem extends Component {
               products: products
             });
             console.log(this.state.search)
-          
+      }
+
+      // Notify the user if they have enough points
+      notifyRedeem(price) {
+          console.log(price)
+
       }
 
 
     render() {
         const { products, userName, numberProducts, userPoints } = this.state
-        console.log(products)
+        // This make filter products
         let searchProducts = products.filter(
             (product) => {
                 return product.name.toLowerCase().indexOf(this.state.search) !== -1;
@@ -185,7 +204,7 @@ export default class Redeem extends Component {
                         {
                             searchProducts.map(product => {
                                 return (
-                                    <Cell col={3} tablet={4} phone={12}>
+                                    <Cell col={4} tablet={4} phone={12}>
                                         <div className="cardRedeem">
                                             <div>
                                                 <CardRedeem 
@@ -194,7 +213,10 @@ export default class Redeem extends Component {
                                                     price={product.cost} 
                                                     typeProduct={product.category} 
                                                     nameProduct={product.name} 
-                                                    handlePriceProduct={this.handlePriceProduct}/>
+                                                    handlePriceAndIdProduct={this.handlePriceAndIdProduct}
+                                                    productId={product._id}
+                                                    notifyRedeem={this.notifyRedeem}
+                                                    />
                                             </div>
                                         </div>
                                     </Cell> 

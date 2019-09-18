@@ -3,7 +3,7 @@
 .card {
   border-radius: 5px !important;
   width: 320px;
-  height: 310px;
+  height: 300px;
   margin: auto;
   background-color: $backgroundCard !important;
 }
@@ -23,7 +23,6 @@
   letter-spacing: 0.5px;
 }
 .price {
-  margin-left: 145px;
   display: inline;
 }
 .link-redeem {
@@ -32,7 +31,25 @@
   color: $myBlackColor;
 }
 
-// hover
+.container-type-product {
+  display: inline;
+}
+.container-name-product {
+  display: inline;
+}
+
+.container-data-product {
+  width: 200px;
+  float: left;
+}
+
+.container-price {
+  float: right;
+  width: 100px;
+  margin-top: 20px;
+}
+
+// hover redeem
 
 .overlay {
   position: absolute;
@@ -53,22 +70,221 @@
 }
 
 .btn-redeem-card {
-    width: 150px;
-    height: 40px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 60px;
-    font-size: 12px;
-    color: $myBlackColor;
-    text-transform: lowercase;
-    border: none;
-    cursor: pointer;
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 60px;
+  font-size: 12px;
+  color: $myBlackColor;
+  text-transform: lowercase;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-redeem-card:focus {
-    outline: none;
+  outline: none;
 }
 
 .btn-redeem-card:hover {
-    background-color: rgb(247, 247, 247);
+  background-color: rgb(247, 247, 247);
+}
+
+.container-price-redeem {
+  margin-top: 100px !important;
+}
+
+.container-button-hover {
+  margin-top: -10px !important;
+}
+
+.container-price-redeem img {
+  margin-top: -13px;
+  margin-left: 5px;
+  width: 18px !important;
+}
+// end hover redeem
+
+// hove: User have not points
+.overlay-not-points {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  color: white;
+  font-weight: 800;
+  background-color: rgba(255, 0, 0, 0.441);
+}
+
+.card:hover .overlay-not-points  {
+  opacity: 1;
+}
+
+
+@media (min-width: 969px) and (max-width: 1024px) {
+  .card {
+    border-radius: 5px !important;
+    width: 320px;
+    height: 300px;
+    margin: auto;
+    background-color: $backgroundCard !important;
+  }
+
+  .name-product {
+    display: inline;
+    margin-left: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .container-data-product {
+    width: 150px;
+    float: left;
+  }
+
+  .container-price {
+    float: right;
+    width: 100px;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 968px) {
+  .card {
+    border-radius: 5px !important;
+    width: 320px;
+    height: 300px;
+    margin: auto;
+    background-color: $backgroundCard !important;
+  }
+
+  .name-product {
+    display: inline;
+    margin-left: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .container-data-product {
+    width: 150px;
+    float: left;
+  }
+
+  .container-price {
+    float: right;
+    width: 90px;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 799px) {
+  .card {
+    border-radius: 5px !important;
+    width: 320px;
+    height: 300px;
+    margin: auto;
+    background-color: $backgroundCard !important;
+  }
+
+  .name-product {
+    display: inline;
+    margin-left: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .container-data-product {
+    width: 150px;
+    float: left;
+  }
+
+  .container-price {
+    float: right;
+    width: 100px;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 480px) and (max-width: 600px) {
+  .card {
+    border-radius: 5px !important;
+    width: 320px;
+    height: 230px;
+    margin: auto;
+    background-color: $backgroundCard !important;
+  }
+
+  .name-product {
+    display: inline;
+    margin-left: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .container-data-product {
+    width: 130px;
+    float: left;
+  }
+
+  .container-price {
+    float: right;
+    width: 70px;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 479px) {
+  .card {
+    border-radius: 5px !important;
+    width: 320px;
+    height: 300px;
+    margin: auto;
+    background-color: $backgroundCard !important;
+  }
+
+  .name-product {
+    display: inline;
+    margin-left: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .container-data-product {
+    width: 150px;
+    float: left;
+  }
+
+  .container-price {
+    float: right;
+    width: 90px;
+    margin-top: 20px;
+  }
+  .container-redeem-card {
+    padding: 0px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 399px) {
+  .card {
+    border-radius: 5px !important;
+    width: 320px !important;
+    height: 285px;
+    margin: auto;
+    background-color: $backgroundCard !important;
+  }
+
+  .name-product {
+    display: inline;
+    margin-left: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .container-data-product {
+    width: 150px;
+    float: left;
+  }
+
+  .container-price {
+    float: right;
+    width: 90px;
+    margin-top: 20px;
+  }
+  .container-redeem-card {
+    padding: 0px !important;
+}
 }

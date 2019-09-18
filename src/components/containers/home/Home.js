@@ -21,11 +21,22 @@ import game from '../../../assets/img/VR.png';
 import product1 from '../../../assets/img/products/AcerAspire-x2.png';
 import product2 from '../../../assets/img/products/Alienware13-x2.png';
 import product3 from '../../../assets/img/products/MacbookPro-x2.png';
+import facebook from '../../../assets/facebook-square-brands.svg';
+import youtube from '../../../assets/youtube-square-brands.svg';
+import instagram from '../../../assets/instagram-brands.svg';
+
 
 import './home.scss';
 
 export default class Home extends Component {
+    constructor() {
+        super();
+        this.state = {
+            style: {}
+        }
+    }
     render() {
+        this.state.style = { display: 'none' }
         return (
             <div>
                 <Animated animationIn="bounceInLeft" animationOut="fadeIn" animationOutDelay={100} isVisible={false}>
@@ -47,22 +58,22 @@ export default class Home extends Component {
                     <Grid>
                         <Cell col={4} tablet={12} phone={12}>
                             <div className="cardHome">
-                                <CardRedeem image={product1} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} />
+                                <CardRedeem image={product1} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} style={this.state.style}/>
                             </div>
                         </Cell>
                         <Cell col={4} tablet={12} phone={12}>
                             <div className="cardHome">
-                                <CardRedeem image={product2} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} />
+                                <CardRedeem image={product2} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} style={this.state.style}/>
                             </div>
                         </Cell>
                         <Cell col={4} tablet={12} phone={12}>
                             <div className="cardHome">
-                                <CardRedeem image={product3} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} />
+                                <CardRedeem image={product3} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} style={this.state.style}/>
                             </div>
                         </Cell>
                     </Grid>
                 </ReactWOW>    
-                <ReactWOW animation='fadeInUp' data-wow-offset="10" delay='1s'>
+                <ReactWOW animation='fadeInUp' data-wow-offset="10" delay='0.5s'>
                     <Grid className="m-top50">
                         <Cell col={6} tablet={12} >
                             <Grid>
@@ -120,13 +131,23 @@ export default class Home extends Component {
                     
                     <div className="padding-none">
                         <div className="footer center-flex m-top150">
-                            <p>THANKS</p>
+                            <p className="footer-text">THANKS</p>
                         </div>
                     </div>
        
                     <div className="padding-none">
                         <div className="social-media center-flex">
-                            <p>THANKS</p>
+                            <Grid>
+                                <Cell col={3} phone={1}>
+                                    <img className="logo-size" src={facebook} alt="logo" />
+                                </Cell>
+                                <Cell col={3} phone={1}>
+                                    <img className="logo-size" src={instagram} alt="logo" />
+                                </Cell>
+                                <Cell col={3} phone={1}>
+                                    <img className="logo-size" src={youtube} alt="logo" />
+                                </Cell>
+                            </Grid>
                         </div>
                     </div>
            

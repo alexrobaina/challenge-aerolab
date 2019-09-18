@@ -1,5 +1,10 @@
 @import "../../App.scss";
 
+.link-home {
+  margin-top: -10px!important;
+  margin-left: 60px;
+}
+
 .navbar-redeem {
   width: 100%;
   height: 150px;
@@ -7,9 +12,11 @@
 }
 
 .logo-redeem {
-  display: flex;
-  justify-items: space-around;
-  float: left;
+  margin-top: 5px;
+  padding: 10px 19px;
+  position: absolute;
+  z-index: 1000;
+  width: 35px;
 }
 
 .search-redeem {
@@ -20,24 +27,289 @@
 .redeem-options {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .number-products {
   float: none;
+  letter-spacing: 1px;
 }
 
 .btn-cost {
+  background-color: white;
+  border-radius: 20px;
+  width: 140px;
+  height: 30px;
+  border: none;
+  margin-left: 20px;
+}
+
+.btn-cost:hover {
+  background-color: rgba(84, 151, 169, 0.482);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+input[type="text"] {
+  padding: 15px 22px;
+  margin: 10px 5px;
+  box-sizing: border-box;
+}
+
+.btn-cost:focus {
+  outline: none;
+}
+
+.buttons-price {
+  display: inline;
 }
 
 .input-search {
-    width: 320px;
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    
+  width: 320px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 15px;
 }
 
 .input-search:focus {
-    outline: none;
+  outline: none;
+}
+
+.user-name {
+  letter-spacing: 1px;
+}
+
+.user-points {
+  margin-left: 15px;
+  letter-spacing: 1px;
+}
+
+.icon-coin {
+  margin-top: -12px;
+  margin-left: 0px;
+  width: 20px;
+}
+
+@media (min-width: 1024px) and (max-width: 1276px) {
+  .user-name {
+    width: 70px;
+    letter-spacing: 1px;
+  }
+  .cll {
+    width: 370px;
+  }
+  .user-points {
+    letter-spacing: 1px;
+  }
+  .mdl-cell {
+    margin: 6px;
+    width: calc(100% - 16px);
+  }
+
+  .input-search {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+  }
+  .mdl-grid {
+    padding: 0px !important;
+  }
+  .buttons-price {
+    padding: 10px;
+  }
+  .btn-cost {
+    background-color: white;
+    border-radius: 20px;
+    width: 110px;
+    height: 30px;
+    border: none;
+    margin-left: 0px;
+  }
+  .navbar-redeem {
+    width: 100%;
+    height: 150px;
+    background-color: $navbar;
+  }
+
+  .icon-coin {
+    display: inline;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 968px) {
+  .user-name {
+    width: 70px;
+    letter-spacing: 1px;
+  }
+
+  .user-points {
+    letter-spacing: 1px;
+  }
+  .mdl-cell {
+    margin: 6px;
+    width: calc(100% - 16px);
+  }
+
+  .input-search {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+  }
+  .mdl-grid {
+    padding: 0px !important;
+  }
+  .buttons-price {
+    margin-left: 5px;
+  }
+  .container-buttons {
+    width: 300px;
+  }
+
+  .btn-cost {
+    background-color: white;
+    border-radius: 20px;
+    width: 110px;
+    height: 30px;
+    border: none;
+    margin-left: 0px;
+  }
+  .navbar-redeem {
+    width: 100%;
+    height: 115px;
+    background-color: $navbar;
+  }
+  .number-products {
+    display: none;
+  }
+  .icon-coin {
+    display: inline;
+  }
+}
+
+@media (min-width: 460px) and (max-width: 800px) {
+  .user-name {
+    width: 70px;
+    letter-spacing: 1px;
+  }
+  .cll {
+    width: 370px;
+  }
+  .user-points {
+    letter-spacing: 1px;
+  }
+  .mdl-cell {
+    margin: 6px;
+    width: calc(100% - 16px);
+  }
+
+  .input-search {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+  }
+  .mdl-grid {
+    padding: 0px !important;
+  }
+  .buttons-price {
+    padding: 10px;
+  }
+  .btn-cost {
+    background-color: white;
+    border-radius: 20px;
+    width: 110px;
+    height: 30px;
+    border: none;
+    margin-left: 0px;
+  }
+  .navbar-redeem {
+    width: 100%;
+    height: 150px;
+    background-color: $navbar;
+  }
+  .number-products {
+    display: none;
+  }
+  .icon-coin {
+    display: inline;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 459px) {
+  .mdl-cell {
+    margin: 6px;
+    width: calc(100% - 16px);
+  }
+  .input-search {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+  }
+  .search-redeem {
+    margin-left: 48px;
+  }
+  .mdl-grid {
+    padding: 0px !important;
+  }
+  .buttons-price {
+    padding: 5px;
+  }
+  .btn-cost {
+    background-color: white;
+    border-radius: 20px;
+    width: 110px;
+    height: 30px;
+    border: none;
+    margin-left: 0px;
+  }
+  .navbar-redeem {
+    width: 100%;
+    height: 150px;
+    background-color: $navbar;
+  }
+  .number-products {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .mdl-cell {
+    margin: 6px;
+    width: calc(100% - 16px);
+  }
+  .input-search {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+  }
+  .mdl-grid {
+    padding: 0px !important;
+  }
+  .btn-cost {
+    background-color: white;
+    border-radius: 20px;
+    width: 110px;
+    height: 30px;
+    border: none;
+    margin-left: 0px;
+  }
+  .navbar-redeem {
+    width: 100%;
+    height: 200px;
+    background-color: $navbar;
+  }
+  .number-products {
+    display: none;
+  }
 }
