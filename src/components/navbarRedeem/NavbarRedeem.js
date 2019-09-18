@@ -5,60 +5,18 @@ import axios from 'axios';
 import coin from '../../assets/img/coin.svg'
 import { Button, IconButton } from 'react-mdl';
 import './navbarRedeem.scss';
-import Redeem from '../containers/redeem/Redeem';
-
-const MyContext = React.createContext({
-    user: []
-});
-
 
 export default class NavbarRedeem extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            user: []
-        }
-    }
-
-
-    componentDidMount = async () => {
-        await this._dataProducts();
-    }
-
-    _formatData(data) {
-        let user = [];
-        user = data
-        this.setState({
-            user: user
-        });
-    }
-
-    _dataProducts() {
-        axios({
-            method: 'get',
-            url: 'https://coding-challenge-api.aerolab.co/user/me',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': TOKEN
-            }
-          })
-            .then((response) => {
-                console.log(response.data)
-                this._formatData(response.data)
-            });
+        this.state = {}
     }
 
     render() {
-        const user = this.state.user;
+        const { numberProducts, userName, userPoints, sortDescending, sortAsendig } = this.props;
+        
         return (
             <div>
-                    <MyContext.Provider value={{
-                        user: 'Alex context'
-                        }}>
-                            <Redeem />
-                    </MyContext.Provider>
-                    
                 <div className={"navbar-redeem"}>
                     <div className={""}>
                         <div className="logo">
@@ -74,14 +32,14 @@ export default class NavbarRedeem extends Component {
                     <div className={"redeem-options"}>
                         <div className={"redeem-options"}>  
                         
-                            <p className={"number-products"}>{`${this.props.numberProducts} products`}</p>
-                            <Button className={"btn-cost"}>menor</Button>
-                            <Button className={"btn-cost"}>mayor</Button>
+                            <p className={"number-products"}>{`${numberProducts} products`}</p>
+                            <Button onClick={sortDescending} className={"btn-cost"}>LowestPrice</Button>
+                            <Button onClick={sortAsendig} className={"btn-cost"}>mayor</Button>
                         </div>    
                             
                         <div className="redeem-options">
-                            <p className={""}>{`${user.name}`}</p>
-                            <p className={""}>{`Your points: ${user.points}`}</p>
+                            <p className={""}>{`${userName}`}</p>
+                            <p className={""}>{`Your points: ${userPoints}`}</p>
                             <img src={coin} alt="coin" />
                         </div>
 

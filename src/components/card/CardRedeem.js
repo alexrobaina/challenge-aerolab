@@ -4,7 +4,7 @@ import { Card, IconButton, Grid, Cell } from 'react-mdl';
 import coin from '../../assets/img/coin.svg'
 import './cardRedeem.scss';
 
-const CardRedeem = ({ image, price, typeProduct, nameProduct, style, handlePriceProduct }) => (
+const CardRedeem = ({ image, price, typeProduct, nameProduct, handlePriceProduct }) => (
     <div>
         <div className="center-flex">
             <Card className="card" shadow={3} >
