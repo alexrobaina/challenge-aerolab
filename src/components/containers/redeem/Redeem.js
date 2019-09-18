@@ -3,8 +3,6 @@ import ReactWOW from 'react-wow';
 import TOKEN from '../../../config/config';
 import { Grid, Cell } from 'react-mdl';
 import axios from 'axios';
-import Skeleton from 'react-loading-skeleton';
-
 
 import NavbarRedeem from '../../navbarRedeem/NavbarRedeem';
 import CardRedeem from '../../card/CardRedeem';
@@ -20,11 +18,12 @@ export default class Redeem extends Component {
             user: [],
             userName: '',
             userPoints: 0,
-            isOrder: true
+            isOrder: '',
+            search: ''
         }
 
-        this.sortDescending = this.sortDescending.bind(this);
-        this.sortAsendig = this.sortAsendig.bind(this);
+        this.sortDescendant = this.sortDescendant.bind(this);
+        this.sortAscendent = this.sortAscendent.bind(this);
         
 
     }
@@ -35,6 +34,8 @@ export default class Redeem extends Component {
         
     }
 
+    // Format Data
+
     _formatProducts(data) {
         let products = [];
         products = data
@@ -43,6 +44,21 @@ export default class Redeem extends Component {
             numberProducts: products.length,
         });
     }
+
+    _formatUser(data) {
+        let user = [];
+        user = data
+        console.log(user)
+        this.setState({
+            user: user,
+            userName: user.name,
+            userPoints: user.points
+        });
+    }
+
+    // end format Data
+
+    // axios, search data
 
     _dataProducts() {
         axios({
@@ -57,18 +73,6 @@ export default class Redeem extends Component {
             .then((response) => {
                 this._formatProducts(response.data)
             });
-    }
-
-
-    _formatUser(data) {
-        let user = [];
-        user = data
-        console.log(user)
-        this.setState({
-            user: user,
-            userName: user.name,
-            userPoints: user.points
-        });
     }
 
     _dataUser() {
@@ -87,11 +91,15 @@ export default class Redeem extends Component {
             });
     }
 
+    // end axios, search data
+
+    // methos Handle
+
     handlePriceProduct = (price) => {
-        this._handleRedeem(price);
+        this.handleRedeem(price);
     }
 
-    _handleRedeem(price) {
+    handleRedeem(price) {
         let userPoints = this.state.userPoints;
         if (userPoints < price) {
             alert('no tienes puntos');
@@ -102,55 +110,91 @@ export default class Redeem extends Component {
             userPoints: userPoints
         })
     }
+    // end methos Handle
 
-      sortDescending = () => {
+    // Method for order productos 
+    
+        sortAscendent = () => {
           let {isOrder} = this.state
-            if(isOrder === true){
+            if(isOrder !== 'Ascendent'){
                 const { products } = this.state;
-                products.sort((a, b) => a - b).reverse()
+                products.sort((a, b) => parseFloat(a.cost) - parseFloat(b.cost));
                 this.setState({ 
                     products,
-                    isOrder: false
+                    isOrder: 'Ascendent'
                 });
-                console.log(isOrder)
+
             } else {
                 return
             }
         }
       
 
-      sortAsendig = () => {
+      sortDescendant = () => {
         let {isOrder} = this.state
-            if(isOrder === false){
+            if(isOrder !== 'Descendant'){
                 const { products } = this.state;
-                products.sort((a, b) => b - a).reverse()
+                products.sort((a, b) => parseFloat(b.cost) - parseFloat(a.cost));
                 this.setState({ 
                     products,
-                    isOrder: true
+                    isOrder: 'Descendant'
                 });
+
             } else {
                 return
             }
+      }
+      // end Method for order productos 
+
+      // method for filter products
+
+      handleSearch = (event) => {
+        let { products } = this.state
+          this.setState({ 
+              search: event.target.value.toLowerCase(),
+              products: products
+            });
+            console.log(this.state.search)
+          
       }
 
 
     render() {
         const { products, userName, numberProducts, userPoints } = this.state
+        console.log(products)
+        let searchProducts = products.filter(
+            (product) => {
+                return product.name.toLowerCase().indexOf(this.state.search) !== -1;
+            }
+        )
         return (
             <div>
                 <ReactWOW delay='1s' animation='fadeIn'>
-                    <NavbarRedeem numberProducts={numberProducts} userName={userName} userPoints={userPoints} sortDescending={this.sortDescending} sortAsendig={this.sortAsendig}/>
+                    <NavbarRedeem 
+                        numberProducts={numberProducts} 
+                        userName={userName} 
+                        userPoints={userPoints} 
+                        sortDescendant={this.sortDescendant} 
+                        sortAscendent={this.sortAscendent}
+                        handleSearch={this.handleSearch}
+                        />
                 </ReactWOW>
 
                 <ReactWOW delay='1.5s' animation='fadeIn'>
                     <Grid className="container-redeem-card">
                         {
-                            products.map(product => {
+                            searchProducts.map(product => {
                                 return (
                                     <Cell col={3} tablet={4} phone={12}>
                                         <div className="cardRedeem">
                                             <div>
-                                                <CardRedeem image={product.img.hdUrl} price={product.cost} typeProduct={product.category} nameProduct={product.name} handlePriceProduct={this.handlePriceProduct}/>
+                                                <CardRedeem 
+                                                    id="card-products"
+                                                    image={product.img.hdUrl} 
+                                                    price={product.cost} 
+                                                    typeProduct={product.category} 
+                                                    nameProduct={product.name} 
+                                                    handlePriceProduct={this.handlePriceProduct}/>
                                             </div>
                                         </div>
                                     </Cell> 

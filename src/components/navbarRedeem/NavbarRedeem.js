@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../../assets/aerolab-logo.svg';
-import TOKEN from '../../config/config';
-import axios from 'axios';
 import coin from '../../assets/img/coin.svg'
 import { Button, IconButton } from 'react-mdl';
 import './navbarRedeem.scss';
@@ -13,7 +11,7 @@ export default class NavbarRedeem extends Component {
     }
 
     render() {
-        const { numberProducts, userName, userPoints, sortDescending, sortAsendig } = this.props;
+        const { numberProducts, userName, userPoints, sortAscendent, sortDescendant, handleSearch } = this.props;
         
         return (
             <div>
@@ -24,7 +22,11 @@ export default class NavbarRedeem extends Component {
                         </div>
                         <div className={"search-redeem"}>
                             <div className="m-top10">
-                                <input placeholder="Serach your product" className={"input-search"} type="text" />
+                                <input 
+                                    className={"input-search"} type="text"
+                                    placeholder="Serach your product" 
+                                    onChange={handleSearch}
+                                    />
                                 <IconButton name="search"></IconButton>
                             </div>
                         </div>
@@ -33,8 +35,8 @@ export default class NavbarRedeem extends Component {
                         <div className={"redeem-options"}>  
                         
                             <p className={"number-products"}>{`${numberProducts} products`}</p>
-                            <Button onClick={sortDescending} className={"btn-cost"}>LowestPrice</Button>
-                            <Button onClick={sortAsendig} className={"btn-cost"}>mayor</Button>
+                            <Button onClick={sortAscendent} className={"btn-cost"}>LowestPrice</Button>
+                            <Button onClick={sortDescendant} className={"btn-cost"}>mayor</Button>
                         </div>    
                             
                         <div className="redeem-options">
