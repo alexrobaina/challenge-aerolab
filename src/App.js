@@ -9,7 +9,7 @@ import GivePoints from './components/containers/givePoints/GivePoints';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
               <Router>
                   <Switch>
                       <Route exact path="/" component={Home}/>

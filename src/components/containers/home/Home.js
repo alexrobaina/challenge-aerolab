@@ -56,18 +56,18 @@ export default class Home extends Component {
 
                 <ReactWOW delay='2.5s' animation='fadeInUp'>
                     <Grid>
-                        <Cell col={4} tablet={12} phone={12}>
+                        <Cell col={4} tablet={4} phone={12}>
                             <div className="cardHome">
                                 <CardRedeem image={product1} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} style={this.state.style}/>
                             </div>
                         </Cell>
-                        <Cell col={4} tablet={12} phone={12}>
+                        <Cell col={4} tablet={4} phone={12}>
                             <div className="cardHome">
                                 <CardRedeem image={product2} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} style={this.state.style}/>
                             </div>
                         </Cell>
-                        <Cell col={4} tablet={12} phone={12}>
-                            <div className="cardHome">
+                        <Cell col={4} tablet={4} phone={12}>
+                            <div className="cardHome display">
                                 <CardRedeem image={product3} price={300} typeProduct={'Notebook'} nameProduct={'Macbook Pro'} style={this.state.style}/>
                             </div>
                         </Cell>
@@ -75,7 +75,7 @@ export default class Home extends Component {
                 </ReactWOW>    
                 <ReactWOW animation='fadeInUp' data-wow-offset="10" delay='0.5s'>
                     <Grid className="m-top50">
-                        <Cell col={6} tablet={12} >
+                        <Cell col={6} tablet={4} >
                             <Grid>
                                 <Cell col={12} className="center-flex m-top30">
                                     <p className="text-home">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie ultrices scelerisque. Integer dignissim euismod purus, a maximus libero.</p>
@@ -85,7 +85,7 @@ export default class Home extends Component {
                                 </Cell>
                             </Grid>
                         </Cell>
-                        <Cell col={6} tablet={12} className="center-flex">
+                        <Cell col={6} tablet={4} className="center-flex">
                             <img className="img-work" src={work} alt="ilustration"/>
                         </Cell>
                     </Grid>
@@ -116,11 +116,11 @@ export default class Home extends Component {
                                     <p className="text-home">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie ultrices scelerisque. Integer dignissim euismod purus, a maximus libero.</p>
                                 </Cell>
                             <Grid>
-                                <Cell col={6} tablet={12} className="center-flex m-top30">
+                                <Cell col={6} tablet={6} phone={12} className="center-flex container-robot m-top30">
                                     <img className="img-delivery" src={robot} alt="ilustration"/>
                                 </Cell>
-                                <Cell col={6} tablet={12} className="m-top30">
-                                    <p className="text-home">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie ultrices scelerisque.</p>
+                                <Cell col={6} tablet={6} phone={12} className="robot-text m-top30">
+                                    <p className="text-home-robot">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie ultrices scelerisque.</p>
                                 </Cell>
                             </Grid>
                         </Cell>

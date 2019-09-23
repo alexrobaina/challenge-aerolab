@@ -41,7 +41,6 @@ export default class GivePoints extends Component {
           swal("Enjoy!", `${response.data.message}`, "success");
         })
         .catch(response => {
-          console.log(response);
         });
     } else {
       swal("Sorry!", `The value is not correct`, "error");

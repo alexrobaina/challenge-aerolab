@@ -39,6 +39,14 @@
     font-family: 'Manjari', sans-serif;
 }
 
+.text-home-robot {
+    margin-top: 50px;
+    width: 480px;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Manjari', sans-serif;
+}
+
 .img-game {
     width: 300px;
 }
@@ -77,4 +85,57 @@
     .cardHome {
         margin-top: 50px;
     }
+
+    .display {
+        display: none;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 800px) { 
+    .animation-text {
+        position: absolute;
+        top: 50%;
+        font-size: 30px;
+        font-family: 'Manjari', sans-serif;
+    }
+    .cardHome {
+        margin-top: 50px;
+    }
+    .display {
+        display: none;
+    }
+    .img-delivery {
+        width: 150px;
+    }
+    .text-home {
+        width: 600px;
+
+    }
+    .text-home-robot {
+        width: 600px;
+    }
+    .img-work {
+        width: 300px;
+    }
+    .robot-text {
+        float: left;
+        width: 50%;
+    }
+    .container-robot {
+        float: left;
+        width: 100px;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1024px) { 
+    .animation-text {
+        position: absolute;
+        top: 50%;
+        font-size: 30px;
+        font-family: 'Manjari', sans-serif;
+    }
+    .cardHome {
+        margin-top: 50px;
+    }
+
 }

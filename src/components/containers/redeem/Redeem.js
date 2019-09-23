@@ -6,6 +6,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import NavbarRedeem from '../../navbarRedeem/NavbarRedeem';
 import CardRedeem from '../../card/CardRedeem';
+import Skeleton from 'react-loading-skeleton';
 
 import './redeem.scss'
 
@@ -20,7 +21,8 @@ export default class Redeem extends Component {
             userPoints: 0,
             productId: '',
             isOrder: '',
-            search: ''
+            search: '',
+            prueba: false
         }
 
         this.sortDescendant = this.sortDescendant.bind(this);
@@ -31,6 +33,7 @@ export default class Redeem extends Component {
     componentDidMount = async () => {
         await this._dataProducts();
         await this._dataUser();
+        this._renderTime();
         
     }
 
@@ -109,6 +112,13 @@ export default class Redeem extends Component {
             });
     }
 
+    _renderTime() {
+        setTimeout(() => {
+            this.setState({
+                prueba: true
+            })
+        }, 3000)
+    }
     // end axios, search data
 
     // methos Handle
@@ -168,13 +178,11 @@ export default class Redeem extends Component {
               search: event.target.value.toLowerCase(),
               products: products
             });
-            console.log(this.state.search)
       }
 
       // Notify the user if they have enough points
       notifyRedeem(price) {
           console.log(price)
-
       }
 
 
@@ -199,14 +207,17 @@ export default class Redeem extends Component {
                         />
                 </ReactWOW>
 
-                <ReactWOW delay='1.5s' animation='fadeIn'>
                     <Grid className="container-redeem-card">
                         {
                             searchProducts.map(product => {
                                 return (
-                                    <Cell col={4} tablet={4} phone={12}>
+                                    <Cell col={3} tablet={4} phone={12}>
                                         <div className="cardRedeem">
                                             <div>
+                                                {
+                                                    
+                                                    
+                                                    this.state.prueba === false ? <Skeleton count={10} duration={2} className="skeleton-card"/> :
                                                 <CardRedeem 
                                                     id="card-products"
                                                     image={product.img.hdUrl} 
@@ -216,7 +227,9 @@ export default class Redeem extends Component {
                                                     handlePriceAndIdProduct={this.handlePriceAndIdProduct}
                                                     productId={product._id}
                                                     notifyRedeem={this.notifyRedeem}
-                                                    />
+                                                />  
+                                                
+                                                }
                                             </div>
                                         </div>
                                     </Cell> 
@@ -224,7 +237,6 @@ export default class Redeem extends Component {
                             })
                         }
                     </Grid>
-                </ReactWOW>
 
             </div>
         )

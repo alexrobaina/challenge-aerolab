@@ -121,6 +121,32 @@
   opacity: 1;
 }
 
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .card {
+    border-radius: 5px !important;
+    width: 320px;
+    height: 280px;
+    margin: auto;
+    background-color: $backgroundCard !important;
+  }
+
+  .name-product {
+    display: inline;
+    margin-left: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .container-data-product {
+    width: 150px;
+    float: left;
+  }
+
+  .container-price {
+    float: right;
+    width: 100px;
+    margin-top: 20px;
+  }
+}
 
 @media (min-width: 969px) and (max-width: 1024px) {
   .card {
