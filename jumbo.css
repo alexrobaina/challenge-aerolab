@@ -1,0 +1,46 @@
+
+:root {
+  // body
+  --background-body-desktop: #e5e5e5;
+  --background-body-mobile: #ffffff;
+
+  // Header
+  --header-background-color: #2ec750;
+
+  // input colors
+  --input-border-primary-color: #7989a3;
+  --input-primary-background: #ffffff;
+  --input-primary-focus: #2ec750;
+  --input-primary-hover: #2ec750;
+  --input-primary-placeholder: #9faabd;
+
+  // Generic colors
+  --input-error: #bd2c00;
+  --success: #127127;
+  --button-icon-back: #2ec750;
+
+  // icons
+  --icon-eye-password: #6a6a6a;
+
+  // Font
+  --main-font-regular: 'Open Sans regular';
+  --main-font-bold: 'Open Sans bold';
+
+  // text
+  --label-text-color: #212121;
+  --label-text-color: #212121;
+  --base-text-color: #334661;
+
+  // buttons
+  --button-primary-background: #2ec750;
+  --button-primary-focus: #2ec750;
+  --button-primary-hover: #2ec750;
+  --button-primary-text: #fff;
+
+  --button-primary-text: #fff;
+
+  --button-link: #2ec750;
+
+  --button--state-disabled-text: #6c7c94;
+  --button--state-disabled-background: #f2f5fa;
+}
